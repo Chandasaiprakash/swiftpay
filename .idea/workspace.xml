@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0bc33010-a858-45c0-873c-585f39a5c9d8" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.0" />
+      <entry key="M2" value="1.0" />
+      <entry key="M5" value="1.0000000172522272" />
+      <entry key="M10" value="1.0002070488922776" />
+      <entry key="M15" value="1.0061631316971258" />
+      <entry key="M30" value="1.447880337936972" />
+      <entry key="H1" value="7.76586077777317" />
+      <entry key="H2" value="31.12398521104364" />
+      <entry key="H4" value="66.49239180595362" />
+      <entry key="D1" value="127.85718291295657" />
+      <entry key="W1" value="143.25326416056117" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="3.368001567372701E-135" />
+      <entry key="S60" value="5.803448602201961E-68" />
+      <entry key="M2" value="2.4090585826906E-34" />
+      <entry key="M5" value="3.62316907176438E-14" />
+      <entry key="M10" value="2.2507966592841296E-7" />
+      <entry key="M15" value="4.8491360237160015E-5" />
+      <entry key="M30" value="0.012950231969369846" />
+      <entry key="H1" value="0.24006209676962967" />
+      <entry key="H2" value="1.0779148521686153" />
+      <entry key="H4" value="2.311647525071792" />
+      <entry key="D1" value="4.394036904236824" />
+      <entry key="W1" value="4.9084937411039355" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.01002676482471019" />
+      <entry key="MS500" value="0.3983200481427913" />
+      <entry key="S2" value="0.7944344000961048" />
+      <entry key="S5" value="0.9120595950635025" />
+      <entry key="S10" value="0.9550181124269332" />
+      <entry key="S30" value="0.9847754261150675" />
+      <entry key="S60" value="0.9923585169257467" />
+      <entry key="M2" value="0.996171931408302" />
+      <entry key="M5" value="0.9984670277201273" />
+      <entry key="M10" value="0.9994404574152238" />
+      <entry key="M15" value="1.0056997742688545" />
+      <entry key="M30" value="1.4605570606445142" />
+      <entry key="H1" value="8.005672583653585" />
+      <entry key="H2" value="32.201570882340945" />
+      <entry key="H4" value="68.80372201333736" />
+      <entry key="D1" value="132.25112308263996" />
+      <entry key="W1" value="148.16174251631372" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3DteDyoRvXKYLmhY4cyEsbMAbsS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHELLCHECK.PATH": "C:\\Users\\ganes\\AppData\\Roaming\\JetBrains\\IntelliJIdea2026.1\\plugins\\Shell Script\\shellcheck.exe",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "master",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ganes/swiftpay/transaction-gateway/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propCompiler",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ganes\swiftpay\transaction-gateway\src\main\resources" />
+      <recent name="C:\Users\ganes\swiftpay\analytics-worker\src\main\resources" />
+      <recent name="C:\Users\ganes\swiftpay\analytics-worker\src\main\java\com\swiftpay\analytics-worker" />
+      <recent name="C:\Users\ganes\swiftpay\analytics-worker\src\main\java\com\swiftpay\analytics" />
+      <recent name="C:\Users\ganes\swiftpay\ledger-service\src\main\java\com\swiftpay\ledger_service" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="swiftpay" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="swiftpay" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.24374.151" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.24374.151" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0bc33010-a858-45c0-873c-585f39a5c9d8" name="Changes" comment="" />
+      <created>1779105678246</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1779105678246</updated>
+      <workItem from="1779105679854" duration="3242000" />
+      <workItem from="1779109708786" duration="14982000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
