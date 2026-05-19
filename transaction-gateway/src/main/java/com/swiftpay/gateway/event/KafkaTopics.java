@@ -14,6 +14,6 @@ public final class KafkaTopics {
     public static final String PAYMENTS_FAILED =
             "payments.failed";
 
-    public static final String PAYMENTS_DLQ =
-            "payments.dlq";
+    public static final String PAYMENTS_DLT =
+            "payments.dlt";
 }

@@ -27,40 +27,24 @@ public class PaymentInitiatedConsumer {
     ) {
 
         log.info(
-                "Received PaymentInitiated event transactionId={}",
+                "Received payment event transactionId={}",
                 event.getTransactionId()
         );
 
-        try {
+        /*
+         * Let exceptions propagate
+         * DefaultErrorHandler handles retry + DLT
+         */
+        ledgerService.processPayment(event);
 
-            /*
-             * Process transactional ledger update
-             */
-            ledgerService.processPayment(event);
+        /*
+         * ACK only after successful processing
+         */
+        acknowledgment.acknowledge();
 
-            /*
-             * ACK ONLY AFTER successful DB commit
-             */
-            acknowledgment.acknowledge();
-
-            log.info(
-                    "Kafka offset acknowledged transactionId={}",
-                    event.getTransactionId()
-            );
-
-        } catch (Exception ex) {
-
-            log.error(
-                    "Payment processing failed transactionId={}",
-                    event.getTransactionId(),
-                    ex
-            );
-
-            /*
-             * NO ACK
-             *
-             * Kafka will retry delivery
-             */
-        }
+        log.info(
+                "Payment processed and acknowledged transactionId={}",
+                event.getTransactionId()
+        );
     }
 }

@@ -2,8 +2,12 @@ package com.swiftpay.ledger.service;
 
 import com.swiftpay.ledger.entity.AccountEntity;
 import com.swiftpay.ledger.entity.ProcessedEventEntity;
+import com.swiftpay.ledger.event.PaymentCompletedEvent;
+import com.swiftpay.ledger.event.PaymentFailedEvent;
 import com.swiftpay.ledger.event.PaymentInitiatedEvent;
+import com.swiftpay.ledger.exception.AccountNotFoundException;
 import com.swiftpay.ledger.exception.InsufficientFundsException;
+import com.swiftpay.ledger.producer.LedgerEventProducer;
 import com.swiftpay.ledger.repository.AccountRepository;
 import com.swiftpay.ledger.repository.ProcessedEventRepository;
 import io.micrometer.core.instrument.Counter;
@@ -21,7 +25,11 @@ public class LedgerService {
 
     private final AccountRepository accountRepository;
 
-    private final ProcessedEventRepository processedEventRepository;
+    private final ProcessedEventRepository
+            processedEventRepository;
+
+    private final LedgerEventProducer
+            ledgerEventProducer;
 
     private final Counter paymentCompletedCounter;
 
@@ -36,6 +44,7 @@ public class LedgerService {
     public LedgerService(
             AccountRepository accountRepository,
             ProcessedEventRepository processedEventRepository,
+            LedgerEventProducer ledgerEventProducer,
             Counter paymentCompletedCounter,
             Counter paymentFailedCounter,
             Counter duplicateEventCounter,
@@ -47,6 +56,9 @@ public class LedgerService {
 
         this.processedEventRepository =
                 processedEventRepository;
+
+        this.ledgerEventProducer =
+                ledgerEventProducer;
 
         this.paymentCompletedCounter =
                 paymentCompletedCounter;
@@ -95,8 +107,8 @@ public class LedgerService {
             }
 
             /*
-             * Ordered pessimistic locking
-             * Prevents double-spend race conditions
+             * Pessimistic locking
+             * Ordered locking reduces deadlocks
              */
             List<AccountEntity> accounts =
                     accountRepository.lockAccounts(
@@ -110,7 +122,21 @@ public class LedgerService {
 
                 paymentFailedCounter.increment();
 
-                throw new RuntimeException(
+                ledgerEventProducer.publishPaymentFailed(
+                        PaymentFailedEvent.builder()
+                                .transactionId(
+                                        event.getTransactionId()
+                                )
+                                .reason(
+                                        "Accounts not found"
+                                )
+                                .failedAt(
+                                        LocalDateTime.now()
+                                )
+                                .build()
+                );
+
+                throw new AccountNotFoundException(
                         "Accounts not found"
                 );
             }
@@ -132,12 +158,28 @@ public class LedgerService {
              */
             if (
                     sender.getBalance()
-                            .compareTo(event.getAmount()) < 0
+                            .compareTo(
+                                    event.getAmount()
+                            ) < 0
             ) {
+
+                paymentFailedCounter.increment();
 
                 insufficientFundsCounter.increment();
 
-                paymentFailedCounter.increment();
+                ledgerEventProducer.publishPaymentFailed(
+                        PaymentFailedEvent.builder()
+                                .transactionId(
+                                        event.getTransactionId()
+                                )
+                                .reason(
+                                        "Insufficient funds"
+                                )
+                                .failedAt(
+                                        LocalDateTime.now()
+                                )
+                                .build()
+                );
 
                 throw new InsufficientFundsException(
                         "Insufficient balance"
@@ -149,64 +191,76 @@ public class LedgerService {
              */
             sender.setBalance(
                     sender.getBalance()
-                            .subtract(event.getAmount())
+                            .subtract(
+                                    event.getAmount()
+                            )
             );
 
             receiver.setBalance(
                     receiver.getBalance()
-                            .add(event.getAmount())
+                            .add(
+                                    event.getAmount()
+                            )
             );
 
-            LocalDateTime now =
-                    LocalDateTime.now();
+            sender.setUpdatedAt(
+                    LocalDateTime.now()
+            );
 
-            sender.setUpdatedAt(now);
-
-            receiver.setUpdatedAt(now);
+            receiver.setUpdatedAt(
+                    LocalDateTime.now()
+            );
 
             accountRepository.save(sender);
 
             accountRepository.save(receiver);
 
             /*
-             * Mark Kafka event as processed
+             * Mark event processed
              */
             processedEventRepository.save(
                     ProcessedEventEntity.builder()
                             .eventId(
                                     event.getTransactionId()
                             )
-                            .processedAt(now)
+                            .processedAt(
+                                    LocalDateTime.now()
+                            )
+                            .build()
+            );
+
+            /*
+             * Publish success event
+             */
+            ledgerEventProducer.publishPaymentCompleted(
+                    PaymentCompletedEvent.builder()
+                            .transactionId(
+                                    event.getTransactionId()
+                            )
+                            .senderId(
+                                    event.getSenderId()
+                            )
+                            .receiverId(
+                                    event.getReceiverId()
+                            )
+                            .amount(
+                                    event.getAmount()
+                            )
+                            .currency(
+                                    event.getCurrency()
+                            )
+                            .completedAt(
+                                    LocalDateTime.now()
+                            )
                             .build()
             );
 
             paymentCompletedCounter.increment();
 
             log.info(
-                    """
-                    Payment processed successfully
-                    transactionId={}
-                    senderId={}
-                    receiverId={}
-                    amount={}
-                    """,
-                    event.getTransactionId(),
-                    event.getSenderId(),
-                    event.getReceiverId(),
-                    event.getAmount()
+                    "Payment processed successfully transactionId={}",
+                    event.getTransactionId()
             );
-
-        } catch (Exception ex) {
-
-            paymentFailedCounter.increment();
-
-            log.error(
-                    "Payment processing failed transactionId={}",
-                    event.getTransactionId(),
-                    ex
-            );
-
-            throw ex;
 
         } finally {
 
