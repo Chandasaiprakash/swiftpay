@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.swiftpay.gateway.dto.PaymentRequest;
 import com.swiftpay.gateway.dto.PaymentResponse;
+import com.swiftpay.gateway.dto.TransactionHistoryResponse;
 import com.swiftpay.gateway.entity.OutboxEventEntity;
 import com.swiftpay.gateway.entity.OutboxStatus;
 import com.swiftpay.gateway.entity.TransactionEntity;
@@ -21,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Service

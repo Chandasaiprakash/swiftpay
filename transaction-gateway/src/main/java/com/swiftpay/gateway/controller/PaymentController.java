@@ -2,15 +2,16 @@ package com.swiftpay.gateway.controller;
 
 import com.swiftpay.gateway.dto.PaymentRequest;
 import com.swiftpay.gateway.dto.PaymentResponse;
-import com.swiftpay.gateway.dto.PaymentStatusResponse;
-import com.swiftpay.gateway.service.PaymentQueryService;
+import com.swiftpay.gateway.dto.TransactionHistoryResponse;
+import com.swiftpay.gateway.service.TransactionHistoryService;
 import com.swiftpay.gateway.service.PaymentService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.UUID;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/v1/payments")
@@ -18,7 +19,7 @@ import java.util.UUID;
 public class PaymentController {
 
     private final PaymentService paymentService;
-    private final PaymentQueryService paymentQueryService;
+    private final TransactionHistoryService transactionHistoryService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.ACCEPTED)
@@ -32,16 +33,15 @@ public class PaymentController {
                 request
         );
     }
-    @GetMapping("/{transactionId}")
-    public ResponseEntity<PaymentStatusResponse>
-    getPaymentStatus(
-            @PathVariable UUID transactionId
+
+    @GetMapping("/users/{userId}/transactions")
+    public ResponseEntity<List<TransactionHistoryResponse>>
+    getTransactionHistory(
+            @PathVariable Long userId
     ) {
 
         return ResponseEntity.ok(
-                paymentQueryService.getPaymentStatus(
-                        transactionId
-                )
+                transactionHistoryService.getUserTransactionHistory(userId)
         );
     }
 }
