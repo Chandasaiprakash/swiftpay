@@ -20,6 +20,7 @@ public class PaymentWorkflowConsumer {
     @KafkaListener(
             topics = "payments.completed",
             groupId = "transaction-gateway-group-v1",
+            concurrency = "3",
             containerFactory =
                     "paymentCompletedKafkaListenerFactory"
     )

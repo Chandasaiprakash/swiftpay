@@ -4,11 +4,31 @@ server:
 spring:
   application:
     name: transaction-gateway
+  threads:
+    virtual:
+      enabled: true
   datasource:
     url: jdbc:postgresql://postgres:5432/swiftpay
     username: swiftpay
     password: swiftpay
     driver-class-name: org.postgresql.Driver
+
+    hikari:
+      # Increase the max pool size from the default 10 to 50
+      maximum-pool-size: 50
+      # Allow threads to wait up to 15 seconds to grab a connection before failing
+      connection-timeout: 15000
+      # Ensure connections aren't recycled too aggressively during the test
+      minimum-idle: 20
+      idle-timeout: 300000
+      max-lifetime: 1800000
+
+      # Optimize Tomcat container thread pool to handle concurrent virtual users
+  server:
+    tomcat:
+      threads:
+        max: 200
+        min-spare: 20
 
   jpa:
     hibernate:
@@ -57,4 +77,4 @@ management:
 
 logging:
   level:
-    root: INFO
+    root: WARN

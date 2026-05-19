@@ -11,6 +11,10 @@ spring:
     password: swiftpay
     driver-class-name: org.postgresql.Driver
 
+  threads:
+    virtual:
+      enabled: true
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -36,4 +40,4 @@ management:
 
 logging:
   level:
-    root: INFO
+    root: WARN

@@ -18,6 +18,7 @@ public class PaymentInitiatedConsumer {
     @KafkaListener(
             topics = "payments.initiated",
             groupId = "ledger-service-group",
+            concurrency = "3",
             containerFactory =
                     "kafkaListenerContainerFactory"
     )
