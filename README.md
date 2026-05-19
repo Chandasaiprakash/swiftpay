@@ -492,15 +492,15 @@ Exposed metrics include:
 
 All four topics are visible and active in the Kafka UI, with messages flowing through `payments.initiated`, `payments.failed`, and `payments.dlt`:
 
-![Kafka UI Topics](docs/screenshots/kafka-ui-1.png)
+![Kafka UI Topics](docs/kafka-ui-1.png)
 
 Business failures routing correctly to `payments.failed` — 500 messages consumed, 149ms processing, confirming the business/infrastructure failure separation is working end-to-end:
 
-![payments.failed Messages](docs/screenshots/kafka-ui-2.png)
+![payments.failed Messages](docs/kafka-ui-2.png)
 
 Analytics worker consumer group holding **zero lag** across both `payments.completed` and `payments.failed` — confirming downstream processing keeps up at full throughput:
 
-![Analytics Worker Consumer Lag](docs/screenshots/kafka-ui-3.png)
+![Analytics Worker Consumer Lag](docs/kafka-ui-3.png)
 
 ---
 
