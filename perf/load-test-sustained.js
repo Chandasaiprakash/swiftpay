@@ -8,7 +8,7 @@ export const options = {
             executor: 'constant-arrival-rate',
             rate: 250,              // Target: 250 transactions
             timeUnit: '1s',         // Per 1 second
-            duration: '4s',      // 4000s runtime ensures exactly 1,000,000 iterations
+            duration: '4100s',      // 4000s runtime ensures exactly 1,000,000 iterations
             preAllocatedVUs: 150,   // Base pool of virtual threads ready to fire
             maxVUs: 600,            // Safety ceiling to absorb any transient downstream queues
         },
