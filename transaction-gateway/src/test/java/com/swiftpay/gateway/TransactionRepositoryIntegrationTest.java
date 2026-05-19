@@ -24,7 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @TestPropertySource(properties = {
         "spring.flyway.enabled=false",
         "spring.jpa.hibernate.ddl-auto=create-drop",
-        "spring.flyway.locations=classpath:db/migration"
+        "spring.kafka.listener.auto-startup=false"
 })
 class TransactionRepositoryIntegrationTest {
 
