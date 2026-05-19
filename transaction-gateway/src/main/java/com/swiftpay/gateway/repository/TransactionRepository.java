@@ -12,4 +12,7 @@ public interface TransactionRepository extends JpaRepository<TransactionEntity, 
             Long senderId,
             Long receiverId
     );
+    Optional<TransactionEntity> findByTransactionId(
+            UUID transactionId
+    );
 }
