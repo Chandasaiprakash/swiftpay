@@ -411,7 +411,7 @@ The Ledger Service validates sender balance before transfer. On failure:
 
 Single Kafka partition + single consumer thread caused immediate throughput collapse at 250 TPS:
 
-![K6 Before Optimization](perf/screenshots/Before.png)
+![K6 Before Optimization](docs/Before.png)
 
 | Metric | Value |
 |---|---|
@@ -425,7 +425,7 @@ Single Kafka partition + single consumer thread caused immediate throughput coll
 
 Kafka partitions scaled to 6, consumer concurrency scaled to 6, batch ack mode enabled:
 
-![K6 After Optimization](perf/screenshots/After.png)
+![K6 After Optimization](docs/After.png)
 
 | Metric | Value |
 |---|---|
@@ -492,15 +492,15 @@ Exposed metrics include:
 
 All four topics are visible and active in the Kafka UI, with messages flowing through `payments.initiated`, `payments.failed`, and `payments.dlt`:
 
-![Kafka UI Topics](perf/screenshots/kafka-topics.png)
+![Kafka UI Topics](docs/screenshots/kafka-ui-1.png)
 
 Business failures routing correctly to `payments.failed` — 500 messages consumed, 149ms processing, confirming the business/infrastructure failure separation is working end-to-end:
 
-![payments.failed Messages](perf/screenshots/kafka-payments-failed.png)
+![payments.failed Messages](docs/screenshots/kafka-ui-2.png)
 
 Analytics worker consumer group holding **zero lag** across both `payments.completed` and `payments.failed` — confirming downstream processing keeps up at full throughput:
 
-![Analytics Worker Consumer Lag](perf/screenshots/kafka-consumer-lag.png)
+![Analytics Worker Consumer Lag](docs/screenshots/kafka-ui-3.png)
 
 ---
 
@@ -541,7 +541,7 @@ Build Docker images
 
 All three service pipelines passing on the final commit:
 
-![GitHub Actions CI](perf/screenshots/github-actions.png)
+![GitHub Actions CI](docs/CI.png)
 
 ---
 
