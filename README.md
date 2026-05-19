@@ -598,4 +598,4 @@ Backend Engineer — Java · Spring Boot · Kafka · Distributed Systems
 
 ---
 
-<p align="center">Built with ☕ Java 21 and a strong opinion about financial data consistency.</p>
+<p align="center"> Built with ☕ Java 21 and a strong opinion about financial data consistency.</p>
