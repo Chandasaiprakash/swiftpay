@@ -1,5 +1,6 @@
 package com.swiftpay.gateway.event;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -23,5 +24,6 @@ public class PaymentCompletedEvent {
 
     private String currency;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private LocalDateTime completedAt;
 }

@@ -6,7 +6,7 @@ spring:
     name: ledger-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/swiftpay?options=-c%20timezone=UTC
+    url: jdbc:postgresql://postgres:5432/swiftpay
     username: swiftpay
     password: swiftpay
     driver-class-name: org.postgresql.Driver
@@ -24,7 +24,7 @@ spring:
     locations: classpath:db/migration
 
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: kafka:9092
     consumer:
       group-id: ledger-service-group
       auto-offset-reset: earliest

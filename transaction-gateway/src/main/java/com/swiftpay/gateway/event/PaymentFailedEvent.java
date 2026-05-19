@@ -1,5 +1,6 @@
 package com.swiftpay.gateway.event;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -18,5 +19,6 @@ public class PaymentFailedEvent {
 
     private String reason;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private LocalDateTime failedAt;
 }

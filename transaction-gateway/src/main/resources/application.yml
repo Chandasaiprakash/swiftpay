@@ -5,7 +5,7 @@ spring:
   application:
     name: transaction-gateway
   datasource:
-    url: jdbc:postgresql://localhost:5432/swiftpay?guc_time_zone=UTC
+    url: jdbc:postgresql://postgres:5432/swiftpay
     username: swiftpay
     password: swiftpay
     driver-class-name: org.postgresql.Driver
@@ -23,7 +23,7 @@ spring:
     locations: classpath:db/migration
 
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: kafka:9092
 
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
@@ -36,7 +36,7 @@ spring:
 
   data:
     redis:
-      host: localhost
+      host: redis
       port: 6379
 
   jackson:
