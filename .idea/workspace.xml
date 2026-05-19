@@ -143,6 +143,9 @@
       <recent name="C:\Users\ganes\swiftpay\analytics-worker\src\main\java\com\swiftpay\analytics" />
       <recent name="C:\Users\ganes\swiftpay\ledger-service\src\main\java\com\swiftpay\ledger_service" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ganes\swiftpay\.github\workflows" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
@@ -174,7 +177,7 @@
       <updated>1779105678246</updated>
       <workItem from="1779105679854" duration="3242000" />
       <workItem from="1779109708786" duration="15291000" />
-      <workItem from="1779176442137" duration="9312000" />
+      <workItem from="1779176442137" duration="10243000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
