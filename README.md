@@ -508,10 +508,10 @@ Push / PR
 Compile all services (Maven)
     │
     ▼
-Run Unit + Integration Tests
+Run Unit + Repository Integration Tests (Testcontainers)
     │
     ▼
-Validate integration flows (Testcontainers)
+Validate Spring Boot application startup
     │
     ▼
 Build Docker images
