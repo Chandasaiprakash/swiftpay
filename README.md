@@ -246,27 +246,6 @@ Idempotency-Key: <unique-uuid>
 
 ---
 
-### Get Transaction by ID
-
-```http
-GET /v1/payments/{transactionId}
-```
-
-**Response — `200 OK`**
-```json
-{
-  "transactionId": "7a18dc7e-35f0-4a28-bd22-bd5760c5b284",
-  "senderId": 1004,
-  "receiverId": 2005,
-  "amount": 150.50,
-  "currency": "USD",
-  "status": "COMPLETED",
-  "createdAt": "2026-05-18T17:37:46.291",
-  "updatedAt": "2026-05-18T17:37:48.102"
-}
-```
-
----
 
 ### Get User Transaction History
 
@@ -559,7 +538,7 @@ Kubernetes Readiness
 
 | Property | Status |
 |---|---|
-| CapabilityStatusStateless microservice design | ✅ |
+| Stateless microservice design | ✅ |
 | Docker containerization | ✅ |
 | Externalized configuration | ✅ |
 | Kubernetes Deployments | ✅ |
