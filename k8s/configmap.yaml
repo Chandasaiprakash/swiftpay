@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: swiftpay-config
+  namespace: swiftpay
+
+data:
+  POSTGRES_DB: swiftpay
+  POSTGRES_HOST: postgres
+  POSTGRES_PORT: "5432"
+
+  REDIS_HOST: redis
+  REDIS_PORT: "6379"
+
+  KAFKA_BOOTSTRAP_SERVERS: kafka:9092
