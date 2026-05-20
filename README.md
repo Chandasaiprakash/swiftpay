@@ -452,14 +452,14 @@ k6 run perf/load-test-sustained.js
 
 ### Packet Capture (Windows)
 
-The full 1-million-transaction PCAP trace is available at `perf/swiftpay-loadtest.pcap`.
+The full 1-million-transaction PCAP trace is available at `perf/swiftpay-loadtest.zip`(pcap).
 
 ```powershell
 & "C:\Program Files\Wireshark\tshark.exe" `
   -i \Device\NPF_Loopback `
   -f "tcp port 8080 or tcp port 9092 or tcp port 5432" `
   -s 512 `
-  -w perf/swiftpay-loadtest.pcap
+  -w perf/swiftpay-loadtest.zip
 ```
 
 ---
