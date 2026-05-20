@@ -582,7 +582,7 @@ kubectl get pods -n swiftpay
 
 Live Deployment — All Pods Running
 All services validated running in the swiftpay namespace with 0 restarts:
-![GitHub Actions CI](docs/250TPS.png)
+![GitHub Actions CI](docs/Pods-Running.png)
 
 
 **Planned K8s enhancements:**
