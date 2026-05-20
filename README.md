@@ -546,15 +546,29 @@ All three service pipelines passing on the final commit:
 
 ## ☸️ Kubernetes Readiness
 
-SwiftPay services are designed to be Kubernetes-ready:
+SwiftPay was successfully deployed and validated locally on Kubernetes using Docker Desktop.
+
+The deployment includes full production-style infrastructure:
+
+- Kubernetes Deployments & Services
+- Namespace isolation (swiftpay)
+- ConfigMaps & Secrets
+- Multi-replica service scaling
+
+Kubernetes Readiness
 
 | Property | Status |
 |---|---|
-| Stateless service design | ✅ |
-| Containerized via Docker | ✅ |
+| CapabilityStatusStateless microservice design | ✅ |
+| Docker containerization | ✅ |
 | Externalized configuration | ✅ |
+| Kubernetes Deployments | ✅ |
+| Kubernetes Services | ✅ |
+| Namespace isolation | ✅ |
+| ConfigMaps & Secrets | ✅ |
 | Health check endpoints | ✅ |
 | Independent horizontal scaling | ✅ |
+| Multi-replica deployments | ✅ |
 
 ### Deploy to Kubernetes
 
@@ -565,6 +579,11 @@ kubectl apply -f k8s/
 # Verify pods are running
 kubectl get pods -n swiftpay
 ```
+
+Live Deployment — All Pods Running
+All services validated running in the swiftpay namespace with 0 restarts:
+![Kube pods](docs/pods-running.png)
+
 
 **Planned K8s enhancements:**
 - Helm charts for templated deployments
