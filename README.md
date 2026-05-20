@@ -459,7 +459,7 @@ The full 1-million-transaction PCAP trace is available at `perf/swiftpay-loadtes
   -i \Device\NPF_Loopback `
   -f "tcp port 8080 or tcp port 9092 or tcp port 5432" `
   -s 512 `
-  -w perf/swiftpay-loadtest.zip
+  -w perf/swiftpay-loadtest.pcap
 ```
 
 ---
